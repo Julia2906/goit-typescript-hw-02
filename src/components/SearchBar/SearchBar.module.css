@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.input {
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+
+.button {
+  display: flex;
+  background-color: blue;
+  color: white;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
