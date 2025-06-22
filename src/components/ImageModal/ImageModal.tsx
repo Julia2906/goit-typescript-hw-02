@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import React from 'react';
+import { UnsplashPhoto } from '../FetchPhotos/FetchPhotos';
 import css from './ImageModal.module.css';
 Modal.setAppElement('#root');
 
