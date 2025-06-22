@@ -6,7 +6,7 @@ interface LoadMoreBtnProps {
 
 const LoadMoreBtn: React.FC<LoadMoreBtnProps> = ({ onClick }) => {
   return (
-    <div className={{css.div}}>
+    <div className={css.div}>
       <button onClick={onClick} className={css.button}>
         Load more
       </button>

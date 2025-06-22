@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const ACCESS_KEY = 'sQIAw_PjrocTEAEhNduKVDQuhpihpkrKilxS6kdPVJ4';
+const API_KEY = 'sQIAw_PjrocTEAEhNduKVDQuhpihpkrKilxS6kdPVJ4';
+const BASE_URL = "https://api.unsplash.com";
 
 export type UnsplashPhoto = {
   id: string;
@@ -33,18 +34,23 @@ type Params = {
   page: number;
 };
 
-export const fetchFotoWithTopic = async (
-  userQuery: string,
+export const fetchPhotos = async (
+  query: string,
   page: number = 1
 ): Promise<UnsplashResponse> => {
-  const params: Params = {
-    query: userQuery,
-    client_id: "sQIAw_PjrocTEAEhNduKVDQuhpihpkrKilxS6kdPVJ4",
-    orientation: "portrait",
-    per_page: 12,
-    page,
-  };
-  const response = await axios.get("/search/photos", { params });
+  try {
+    const response = await axios.get(`${BASE_URL}/search/photos`, {
+      params: {
+        query,
+        page,
+        per_page: 20,
+        client_id: API_KEY,
+      },
+    });
 
-  return response.data;
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    throw error;
+  }
 };

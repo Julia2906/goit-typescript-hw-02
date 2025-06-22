@@ -4,7 +4,7 @@ import SearchBar from './SearchBar/SearchBar';
 import Loader from './Loader/Loader';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import { useState } from 'react';
-import {fetchFotoWithTopic, UnsplashPhoto} from './FetchPhotos/FetchPhotos';
+import {fetchPhotos, UnsplashPhoto} from './FetchPhotos/FetchPhotos';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './ImageModal/ImageModal';
 import toast from 'react-hot-toast';
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         setError(false);
         setLoading(true);
 
-        const data = await fetchFotoWithTopic(query, page);
+        const data = await fetchPhotos(query, page);
         setFoto((prev) => [...prev, ...data.results]);
       } catch {
         setError(true);
